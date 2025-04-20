@@ -31,6 +31,7 @@ const BestSelling: FC<{ products: ProductType[] }> = ({ products }) => {
                         name={item.modelName}
                         url={item.photo || '/default.png'}
                         price={item.prise}
+                        id={item.id}
                     />
                 ))}
             </div>

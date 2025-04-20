@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Work_Sans } from "next/font/google";
 import "./globals.css";
-import ClientSessionProvider from "@/app/components/ClientSessionProvider"; // Імпортуємо ClientSessionProvider
+import ClientSessionProvider from "@/app/components/ClientSessionProvider";
+import Header from "@/app/components/header/Header"; // Імпортуємо ClientSessionProvider
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -56,6 +57,9 @@ export default function RootLayout({
                     antialiased
                 `}
             >
+            <div className="lg:px-[80px] px-[40px]">
+                <Header/>
+            </div>
             {children}
             </body>
         </ClientSessionProvider>

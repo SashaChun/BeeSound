@@ -1,5 +1,3 @@
-// pages/api/auth/[...nextauth].ts
-
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
@@ -37,13 +35,13 @@ export const authOptions = {
                     throw new Error('Invalid Credentials');
                 }
 
-                return user;  // Повертає користувача після успішної авторизації
+                return user;
             },
         }),
     ],
     session: { strategy: 'jwt' },
     pages: {
-        signIn: '/auth/signin',  // Сторінка для входу
+        signIn: '/auth/signin',
     },
     secret: process.env.NEXTAUTH_SECRET,
 };

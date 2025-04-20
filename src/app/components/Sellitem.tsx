@@ -1,17 +1,27 @@
+'use client';
+
 import Image from "next/image";
 import { geistSans } from "@/app/fonts";
 import { FC } from "react";
+import { redirect } from 'next/navigation';
 
 type SellitemType = {
-    isBlackFriday?: boolean,
-    name: string,
-    url: string,
-    price: string,
-}
+    id: string;
+    isBlackFriday?: boolean;
+    name: string;
+    url: string;
+    price: string;
+    params?: any;
+};
 
-const Sellitem: FC<SellitemType> = ({ isBlackFriday = false, name, url, price }) => {
+const Sellitem: FC<SellitemType> = ({ isBlackFriday = false, params, name, url, price, id }) => {
+
+    const handleRedirect = () => {
+        redirect(`/${id}`);
+    };
+
     return (
-        <section>
+        <button onClick={handleRedirect} className="transition-transform transform hover:scale-105 hover:shadow-lg">
             <div className="h-[250px] flex items-center justify-center bg-[#F2F5FF]">
                 {url ? (
                     <Image
@@ -22,7 +32,6 @@ const Sellitem: FC<SellitemType> = ({ isBlackFriday = false, name, url, price })
                         height={200}
                     />
                 ) : null}
-
             </div>
 
             <div>
@@ -41,7 +50,7 @@ const Sellitem: FC<SellitemType> = ({ isBlackFriday = false, name, url, price })
                     {price}
                 </p>
             </div>
-        </section>
+        </button>
     );
 };
 

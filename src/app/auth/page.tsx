@@ -29,7 +29,7 @@ function AuthForm() {
 
     useEffect(() => {
         if (status === 'authenticated') {
-            router.push('/chats');
+            router.push('/');
         }
     }, [status, router]);
 
@@ -48,7 +48,7 @@ function AuthForm() {
                 if (signInResponse?.error) {
                     alert('Невірні дані для входу');
                 } else {
-                    router.push('/chats');
+                    router.push('/');
                 }
             } else {
                 const signInResponse = await signIn('credentials', {
@@ -60,7 +60,7 @@ function AuthForm() {
                 if (signInResponse?.error) {
                     alert('Невірні дані для входу');
                 } else {
-                    router.push('/chats');
+                    router.push('/');
                 }
             }
         } catch (err) {
