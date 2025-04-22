@@ -1,8 +1,7 @@
 import {geistSans} from "@/app/fonts";
 
-import Sellitem from "@/app/[pdoductId]/Conponets/Sellitem";
-import getAllProduct from "../../../../actions/getAllProduct";
-
+import Sellitem from "../../[pdoductId]/Conponets/Sellitem";
+import getAllProduct from "../../../../../actions/getAllProduct";
 
 const NewArriver = async () => {
 

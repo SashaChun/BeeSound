@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react';
-import dots from '../../asets/dots.png';
-import dots1 from '../../asets/61ETx+hCkWL 1.png';
-import dots2 from '../../asets/Wireless-Headphones-Free-PNG-Image.png';
-import Image from 'next/image';
+import dots from '../../../asets/dots.png';
+import dots1 from '../../../asets/61ETx+hCkWL 1.png';
+import dots2 from '../../../asets/Wireless-Headphones-Free-PNG-Image.png';
+import Image from "next/image";
 
 const imageArray = [
     { img: dots },

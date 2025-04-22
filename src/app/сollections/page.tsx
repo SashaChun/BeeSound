@@ -5,7 +5,7 @@ const Collection = async () => {
 
     const entries = await getAllProduct();
 
-    return <div>
+    return <div className="lg:px-[80px] px-[40px]">
         <BestSelling products={entries}/>
     </div>
 }

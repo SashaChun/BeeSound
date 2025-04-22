@@ -17,7 +17,7 @@ type SellitemType = {
 const Sellitem: FC<SellitemType> = ({ isBlackFriday = false, params, name, url, price, id }) => {
 
     const handleRedirect = () => {
-        redirect(`/${id}`);
+        redirect(`/product/${id}`);
     };
 
     return (

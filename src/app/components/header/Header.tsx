@@ -7,10 +7,13 @@ import Basket from '../../asets/basket.svg';
 import {geistSans, inter} from "@/app/fonts";
 import {getCurrentUser} from "../../../../actions/getCurrentUser";
 import Link from "next/link";
+import Counter from "@/app/components/header/components/counter";
+import {getCart} from "../../../../actions/getCart";
 export default async function Header() {
 
     const user = await getCurrentUser();
-
+    const count = await getCart();
+    console.log(count);
     return (
         <header className="w-full   pt-[60px]">
             <div className="flex  md:space-y-0 space-y-5 md:flex-row flex-col items-center justify-between w-full">
@@ -42,8 +45,14 @@ export default async function Header() {
                 <div className="flex flex-row items-center xl:gap-8 md:gap-5 gap-3">
                     <div className="flex flex-row items-center gap-4">
                         <Image src={Sircle} alt="Sircle" />
-                        <Image src={Basket} alt="Basket" />
+                        <Link href="/cart">
+                            <div className={'relative sm:mt-0 mt-5'}>
+                                {count.itemCount && <Counter count={count && count.itemCount}/>}
+                                <Image src={Basket} alt="Basket" />
+                            </div>
+                        </Link>
                     </div>
+                    <Link href="/auth">
                     {
                       !user &&   <button className="border-[#1B234A] border-[3px] rounded-[10px] px-6 py-1">
                         <span  className={`${inter.variable} font-sans text-[16px]`}>
@@ -51,6 +60,7 @@ export default async function Header() {
                         </span>
                         </button>
                     }
+                    </Link>
                 </div>
             </div>
         </header>

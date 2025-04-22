@@ -1,7 +1,7 @@
 import { geistSans } from "@/app/fonts";
 import Sellitem from "@/app/components/Sellitem";
 
-const BlackFriday = () => {
+const BlackFriday = ({products}) => {
     return (
         <div className="p-6 sm:p-10 lg:p-[90px] mt-20 flex flex-col lg:flex-row gap-10 justify-between bg-[#222121]">
             <div className="w-full lg:w-[30%]">
@@ -17,9 +17,16 @@ const BlackFriday = () => {
             </div>
 
             <div className="w-full flex flex-col md:flex-row   justify-center items-center gap-6">
-                <Sellitem isBlackFriday={true} />
-                <Sellitem isBlackFriday={true} />
-                <Sellitem isBlackFriday={true} />
+                {products && products?.slice(0 , 3).map((item) => (
+                    <Sellitem
+                        isBlackFriday={true}
+                        key={item.id}
+                        name={item.modelName}
+                        url={item.photo || '/default.png'}
+                        price={item.prise}
+                        id={item.id}
+                    />
+                ))}
             </div>
         </div>
     );

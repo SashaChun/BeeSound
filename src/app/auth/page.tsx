@@ -72,7 +72,7 @@ function AuthForm() {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <div className="flex justify-center items-center min-h-screen ">
             <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
                 {loginVariant === 'REGISTER' && (
                     <div>
@@ -118,13 +118,13 @@ function AuthForm() {
                 <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full mt-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    className="w-full mt-4 py-2 bg-[#AF367B] text-white rounded "
                 >
                     {loginVariant === 'LOGIN' ? 'Sign In' : 'Register'}
                 </button>
 
                 <div className="mt-4 text-center">
-                    <button type="button" onClick={toggleSubmit} className="text-sm text-blue-500 hover:underline">
+                    <button type="button" onClick={toggleSubmit} className="text-sm text-black hover:underline">
                         {loginVariant === 'LOGIN' ? 'Create an account' : 'Already have an account? Sign In'}
                     </button>
                 </div>
