@@ -5,7 +5,7 @@ import ImagePiker from "@/app/product/[pdoductId]/Conponets/ImagePiker";
 import ButtonAdd from "@/app/product/[pdoductId]/Conponets/buttonAdd";
 import { getSession } from "next-auth/react";
 
-const ProductID = async ({ params }: { params: any }) => {
+const ProductID = async ({ params  }: { params: any }) => {
     const data = await fetchProductByName(`${params.pdoductId}`);
 
     if (!data) {
@@ -28,26 +28,26 @@ const ProductID = async ({ params }: { params: any }) => {
         name: data[0]?.modelName,
         price: 123,
         quantity: 1,
+        photo : data[0]?.photos[0],
     };
 
-    console.log("data", item);
 
     return (
         <section className={'px-[60px] mt-10 py-[40px]'}>
             <div>
                 <div className={'flex flex-row space-x-[100px]'}>
-                    <ImagePiker />
+                    <ImagePiker imageArray={data[0].photos} />
                     <div className={'flex flex-col justify-between'}>
                         <h1 className={'font-sans text-[24px] font-[500] text-[#1A1A1A]'}>
                             {data[0]?.modelName}
                         </h1>
 
-                        <div className="flex items-center flex-row space-x-2 mt-2">
+                        {data?.color &&<div className="flex items-center flex-row space-x-2 mt-2">
                             <div className="w-[30px] h-[30px] rounded-full bg-amber-600"></div>
                             <div className="w-[30px] h-[30px] rounded-full bg-green-400"></div>
                             <div className="w-[30px] h-[30px] rounded-full bg-red-600"></div>
                             <div className="w-[30px] h-[30px] rounded-full bg-blue-600"></div>
-                        </div>
+                        </div>}
 
                         {/* Characteristics of the product */}
                         <HaracteristicItem name={'Brand'} haracteristic={data[0]?.brand ?? 'N/A'} />

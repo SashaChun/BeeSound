@@ -1,7 +1,7 @@
 import { addToProduct } from "../../../../../actions/addToProduct";
 import { getUserId } from "../../../../../actions/getUserId";
 
-const ButtonAdd = ({ data }: { data: { name: string, price: number, quantity: number } }) => {
+const ButtonAdd = ({ data }: { data: { name: string, price: number, photo : string , quantity: number } }) => {
     async function get() {
         'use server';
         const id = await getUserId();

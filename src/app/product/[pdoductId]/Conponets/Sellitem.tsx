@@ -11,13 +11,14 @@ type SellitemType = {
     url: string;
     price: string;
     id: string;
+    colors?: string[];
 };
 
 
-const Sellitem: FC<SellitemType> = ({ isBlackFriday = false, id, name, url, price }) => {
+const Sellitem: FC<SellitemType> = ({ isBlackFriday = false, id, colors , name, url, price }) => {
 
     const handleRedirect = () => {
-        redirect(`/${id}`);
+        redirect(`/product/${id}`);
     };
 
     return (
@@ -43,12 +44,14 @@ const Sellitem: FC<SellitemType> = ({ isBlackFriday = false, id, name, url, pric
                     {name}
                 </p>
 
-                <div className="flex items-center flex-row space-x-2 mt-2">
-                    <div className="w-[18px] h-[18px] rounded-full bg-amber-600"></div>
-                    <div className="w-[18px] h-[18px] rounded-full bg-green-400"></div>
-                    <div className="w-[18px] h-[18px] rounded-full bg-red-600"></div>
-                    <div className="w-[18px] h-[18px] rounded-full bg-blue-600"></div>
-                </div>
+                {colors && (
+                    <div className="flex items-center flex-row space-x-2 mt-2">
+                        <div className="w-[18px] h-[18px] rounded-full bg-amber-600"></div>
+                        <div className="w-[18px] h-[18px] rounded-full bg-green-400"></div>
+                        <div className="w-[18px] h-[18px] rounded-full bg-red-600"></div>
+                        <div className="w-[18px] h-[18px] rounded-full bg-blue-600"></div>
+                    </div>
+                )}
 
                 <p
                     className={`mt-2 ${geistSans.variable} font-sans text-[15px] font-semibold ${

@@ -15,8 +15,10 @@ export const fetchProductByName = async (name: string) => {
         modelName: documentToPlainTextString(item.fields.modelName),
         product: documentToPlainTextString(item.fields.product),
         prise: documentToPlainTextString(item.fields.prise),
-        photo: item.fields.photo?.[0]?.fields?.file?.url ?? '/placeholder.jpg',
-        connectivityTechnology : item.fields.connectivityTechnology
+        photos: item.fields.photo?.map((asset: any) =>
+            `https:${asset.fields?.file?.url}`
+        ) ?? ['/placeholder.jpg'],
+        connectivityTechnology: item.fields.connectivityTechnology
     }));
 
     return entries;

@@ -3,7 +3,7 @@
 import { prisma } from '../lib/prisma';
 
 
-export async function addToProduct(id: string, data: { name: string, price: number, quantity: number }) {
+export async function addToProduct(id: string, data: { name: string,photo : string, price: number, quantity: number }) {
     console.log('User ID:', id);
     if (!id) {
         throw new Error('User not found');
@@ -27,7 +27,7 @@ export async function addToProduct(id: string, data: { name: string, price: numb
             name: data.name,
             price: data.price,
             quantity: data.quantity,
-            imageUrl: 'https://example.com/beats.png', // Ви можете динамічно отримати URL
+            imageUrl: data.photo, // Ви можете динамічно отримати URL
         },
     });
 
