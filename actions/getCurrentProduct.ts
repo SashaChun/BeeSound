@@ -18,7 +18,8 @@ export const fetchProductByName = async (name: string) => {
         photos: item.fields.photo?.map((asset: any) =>
             `https:${asset.fields?.file?.url}`
         ) ?? ['/placeholder.jpg'],
-        connectivityTechnology: item.fields.connectivityTechnology
+        connectivityTechnology: item.fields.connectivityTechnology,
+        color : item.fields.color,
     }));
 
     return entries;

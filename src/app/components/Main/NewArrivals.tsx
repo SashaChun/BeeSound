@@ -11,10 +11,10 @@ const NewArriver = () => {
             </button>
         </div>
         <div className={'grid md:grid-cols-2 xl:grid-cols-4 sm:grid-cols-1  gap-10 mt-10'}>
-            <Sellitem/>
-            <Sellitem/>
-            <Sellitem/>
-            <Sellitem/>
+            {/*<Sellitem />*/}
+            {/*<Sellitem/>*/}
+            {/*<Sellitem/>*/}
+            {/*<Sellitem/>*/}
         </div>
     </section>
 }

@@ -49,6 +49,7 @@ function AuthForm() {
                     alert('Невірні дані для входу');
                 } else {
                     router.push('/');
+                    router.refresh();
                 }
             } else {
                 const signInResponse = await signIn('credentials', {
@@ -60,7 +61,7 @@ function AuthForm() {
                 if (signInResponse?.error) {
                     alert('Невірні дані для входу');
                 } else {
-                    router.push('/');
+                    router.push('../');
                 }
             }
         } catch (err) {

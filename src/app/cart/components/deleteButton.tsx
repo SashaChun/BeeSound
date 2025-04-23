@@ -3,7 +3,7 @@ import { deleteCartItem } from "../../../../actions/deleteCartItem";
 const DeleteButton = ({ id }: { id: string }) => {
 
     async function Delete() {
-        await deleteCartItem(id);  // Pass id directly as a string
+        await deleteCartItem(id);
     }
 
     return (

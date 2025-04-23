@@ -5,6 +5,8 @@ import ImagePiker from "@/app/product/[pdoductId]/Conponets/ImagePiker";
 import ButtonAdd from "@/app/product/[pdoductId]/Conponets/buttonAdd";
 import { getSession } from "next-auth/react";
 
+
+
 const ProductID = async ({ params  }: { params: any }) => {
     const data = await fetchProductByName(`${params.pdoductId}`);
 
@@ -42,12 +44,6 @@ const ProductID = async ({ params  }: { params: any }) => {
                             {data[0]?.modelName}
                         </h1>
 
-                        {data?.color &&<div className="flex items-center flex-row space-x-2 mt-2">
-                            <div className="w-[30px] h-[30px] rounded-full bg-amber-600"></div>
-                            <div className="w-[30px] h-[30px] rounded-full bg-green-400"></div>
-                            <div className="w-[30px] h-[30px] rounded-full bg-red-600"></div>
-                            <div className="w-[30px] h-[30px] rounded-full bg-blue-600"></div>
-                        </div>}
 
                         {/* Characteristics of the product */}
                         <HaracteristicItem name={'Brand'} haracteristic={data[0]?.brand ?? 'N/A'} />

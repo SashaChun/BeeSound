@@ -1,12 +1,14 @@
 'use server';
 
 import { prisma } from '../lib/prisma';
+import {redirect} from "next/navigation";
+import {revalidatePath} from "next/cache";
 
 
-export async function addToProduct(id: string, data: { name: string,photo : string, price: number, quantity: number }) {
+export async function addToProduct(id: string | undefined, data: { name: string,photo : string, price: number, quantity: number }) {
     console.log('User ID:', id);
     if (!id) {
-        throw new Error('User not found');
+        redirect('/auth');
     }
 
     const userId = id;
@@ -31,5 +33,7 @@ export async function addToProduct(id: string, data: { name: string,photo : stri
         },
     });
 
+    revalidatePath('/cart');
+    revalidatePath('/');
     return item;
 }

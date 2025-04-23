@@ -55,7 +55,7 @@ export default async function Header() {
                         <Image src={Sircle} alt="Sircle" />
                         <Link href="/cart">
                             <div className={`relative ${mt}`}>
-                                <Counter count={count && count.itemCount} />
+                                <Counter count={count && count.itemCount || null} />
                                 <Image src={Basket} alt="Basket" />
                             </div>
                         </Link>

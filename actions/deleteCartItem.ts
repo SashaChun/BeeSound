@@ -1,5 +1,5 @@
-// src/actions/deleteCartItem.ts
 'use server';
+import {revalidatePath} from "next/cache";
 
 import { prisma } from "../lib/prisma";
 
@@ -9,4 +9,6 @@ export async function deleteCartItem(id: string) {
             id: id, // Ensure that id is a string, not an object
         },
     });
+
+    revalidatePath('/cart');
 }
